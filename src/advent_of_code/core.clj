@@ -5,11 +5,12 @@
 
 (defmacro run-problem
   [n part]
-  (let [ns (format "day-%02d" n)]
+  (let [ns (format "day-%02d" n)
+        part-str (case part
+                   :part-a "part-a"
+                   :part-b "part-b")]
     (list
-     (symbol ns (case part
-                  :part-a "part-a"
-                  :part-b "part-b"))
+     (symbol ns part-str)
      (symbol ns "input"))))
 
 (defn- print-day
