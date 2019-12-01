@@ -10,7 +10,7 @@
      string/split-lines
      (mapv #(Integer. %)))) 
 
-(defn mass->fuel
+(defn- mass->fuel
   [mass]
   (- (Math/floor (/ mass 3)) 2))
 
@@ -20,7 +20,7 @@
        (map mass->fuel)
        (reduce +)))
 
-(defn mass->extra-fuel
+(defn- mass->extra-fuel
   [mass]
   (->> mass
        (iterate mass->fuel)
